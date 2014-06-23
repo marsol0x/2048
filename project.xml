@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="2048" package="com.example.2048" version="1.0.0" company="Company Name" />
+	<app main="Main" path="Export" file="2048" />
+    <window width="400" height="400" fps="30" resizable="false" background="#14394F" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	
+    <assets path="Assets/images" rename="images" />
+	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<icon path="Assets/openfl.svg" />
+	
+</project>
