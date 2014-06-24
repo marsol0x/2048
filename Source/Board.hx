@@ -23,13 +23,14 @@ class Board {
     }
 
     public function setRandom(num:Int) {
-        while (true) {
-            var index = Math.floor(Math.random() * width * height - 1);
-            if (board[index] == 0) {
-                board[index] = num;
-                break;
+        var empty = new Array<Int>();
+        for (i in 0...board.length) {
+            if (board[i] == 0) {
+                empty.push(i);
             }
         }
+        var index = Math.floor(Math.random() * empty.length);
+        board[empty[index]] = num;
     }
 
     public function hasFours():Bool {
