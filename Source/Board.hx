@@ -96,24 +96,25 @@ class Board {
     }
 
     private function shift(list:Vector<Int>):Vector<Int> {
-        for (x in 0...list.length) { // This needs to happen for length number of times
-            for (i in 0...list.length) {
-                var cur = list[i];
-                var next = if (i == list.length - 1) 0 else list[i + 1];
+        for (i in 0...list.length) {
+            var cur = list[i];
+            for (j in (i + 1)...list.length) {
+                var next = list[j];
 
-                if (cur == next) {
-                    cur = cur + next;
-                    next = 0;
-                } else if (cur == 0) {
-                    cur = next;
-                    next = 0;
+                if (next == 0) {
+                    continue;
                 }
 
-                list[i] = cur;
-                if (i != list.length - 1) {
-                    list[i + 1] = next;
+                if (cur == 0) {
+                    cur = next;
+                    list[j] = 0;
+                } else if (cur == next) {
+                    cur += next;
+                    list[j] = 0;
+                    break;
                 }
             }
+            list[i] = cur;
         }
         return list;
     }
